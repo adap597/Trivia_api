@@ -1,113 +1,186 @@
-# Backend - Full Stack Trivia API 
+# Frontend - Full Stack Trivia API 
 
-### Installing Dependencies for the Backend
+### Getting Setup
 
-1. **Python 3.7** - Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
+> _tip_: this frontend is designed to work with [Flask-based Backend](../backend). It is recommended you stand up the backend first, test using Postman or curl, update the endpoints in the frontend, and then the frontend should integrate smoothly.
 
+### Installing Dependencies
 
-2. **Virtual Enviornment** - We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+1. **Installing Node and NPM**<br>
+This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (the download includes NPM) from [https://nodejs.com/en/download](https://nodejs.org/en/download/).
 
-
-3. **PIP Dependencies** - Once you have your virtual environment setup and running, install dependencies by naviging to the `/backend` directory and running:
+2. **Installing project dependencies**<br>
+This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the `frontend` directory of this repository. After cloning, open your terminal and run:
 ```bash
-pip install -r requirements.txt
+npm install
 ```
-This will install all of the required packages we selected within the `requirements.txt` file.
+>_tip_: **npm i** is shorthand for **npm install**
 
+# Required Tasks
 
-4. **Key Dependencies**
- - [Flask](http://flask.pocoo.org/)  is a lightweight backend microservices framework. Flask is required to handle requests and responses.
+### Running Your Frontend in Dev Mode
 
- - [SQLAlchemy](https://www.sqlalchemy.org/) is the Python SQL toolkit and ORM we'll use handle the lightweight sqlite database. You'll primarily work in app.py and can reference models.py. 
+The frontend app was built using create-react-app. In order to run the app in development mode use ```npm start```. You can change the script in the ```package.json``` file. 
 
- - [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server. 
-
-### Database Setup
-With Postgres running, restore a database using the trivia.psql file provided. From the backend folder in terminal run:
-```bash
-psql trivia < trivia.psql
-```
-
-### Running the server
-
-From within the `./src` directory first ensure you are working using your created virtual environment.
-
-To run the server, execute:
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.<br>
 
 ```bash
-flask run --reload
+npm start
 ```
-have to export flask app first from the backend flasker folder (cd into it)
-export FLASK_APP=__init__.py 
 
-The `--reload` flag will detect file changes and restart the server automatically.
+### Request Formatting
 
-## ToDo Tasks
-These are the files you'd want to edit in the backend:
+The frontend should be fairly straightforward and disgestible. You'll primarily work within the ```components``` folder in order to understand, and if you so choose edit, the endpoints utilized by the components. While working on your backend request handling and response formatting, you can reference the frontend to view how it parses the responses. 
 
-1. *./backend/flaskr/`__init__.py`*
-2. *./backend/test_flaskr.py*
+After you complete your endpoints, ensure you return to the frontend to confirm your API handles requests and responses appropriately: 
+- Endpoints defined as expected by the frontend
+- Response body provided as expected by the frontend 
 
+### Optional: Updating Endpoints and API behavior
 
-One note before you delve into your tasks: for each endpoint, you are expected to define the endpoint and response data. The frontend will be a plentiful resource because it is set up to expect certain endpoints and response data formats already. You should feel free to specify endpoints in your own way; if you do so, make sure to update the frontend or you will get some unexpected behavior. 
-
-1. Use Flask-CORS to enable cross-domain requests and set response headers. 
+Would you rather the API had different behavior - different endpoints, return the response body in a different format? Go for it! Make the updates to your API and the corresponding updates to the frontend so it works with your API seamlessly. 
 
 
-2. Create an endpoint to handle GET requests for questions, including pagination (every 10 questions). This endpoint should return a list of questions, number of total questions, current category, categories. 
+### Optional: Styling
 
+In addition, you may want to customize and style the frontend by editing the CSS in the ```stylesheets``` folder. 
 
-3. Create an endpoint to handle GET requests for all available categories. 
+### Optional: Game Play Mechanics
 
+Currently, when a user plays the game they play up to five questions of the chosen category. If there are fewer than five questions in a category, the game will end when there are no more questions in that category. 
 
-4. Create an endpoint to DELETE question using a question ID. 
-
-
-5. Create an endpoint to POST a new question, which will require the question and answer text, category, and difficulty score. 
-
-
-6. Create a POST endpoint to get questions based on category. 
-
-
-7. Create a POST endpoint to get questions based on a search term. It should return any questions for whom the search term is a substring of the question. 
-
-
-8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
-
-
-9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
+You can optionally update this game play to increase the number of questions or whatever other game mechanics you decide. Make sure to specify the new mechanics of the game in the README of the repo you submit so the reviewers are aware that the behavior is correct. 
 
 
 
-## Review Comment to the Students
-```
-This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
+>**Spoiler Alert:** If needed, there are details below regarding the expected endpoints and behavior. But, ONLY consult there if necessary, so you give yourself the opportunity to practice understanding code!
 
-Endpoints
-GET '/api/v1.0/categories'
-GET ...
-POST ...
-DELETE ...
+# DO NOT PROCEED: ENDPOINT SPOILERS
+>Only read the below to confirm your notes regarding the expected API endpoint behavior based on reading the frontend codebase. 
 
-GET '/api/v1.0/categories'
+
+**Here are the expected endpoints and behavior**:
+
+
+```js
+GET '/categories'
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
-- Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs. 
-{'1' : "Science",
-'2' : "Art",
-'3' : "Geography",
-'4' : "History",
-'5' : "Entertainment",
-'6' : "Sports"}
-
+- Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs. 
+{
+    'categories': { '1' : "Science",
+    '2' : "Art",
+    '3' : "Geography",
+    '4' : "History",
+    '5' : "Entertainment",
+    '6' : "Sports" }
+}
 ```
 
 
-## Testing
-To run the tests, run
+```js
+GET '/questions?page=${integer}'
+- Fetches a paginated set of questions, a total number of questions, all categories and current category string. 
+- Request Arguments: page - integer
+- Returns: An object with 10 paginated questions, total questions, object including all categories, and current category string
+{
+    'questions': [
+        {
+            'id': 1,
+            'question': 'This is a question',
+            'answer': 'This is an answer', 
+            'difficulty': 5,
+            'category': 2
+        },
+    ],
+    'totalQuestions': 100,
+    'categories': { '1' : "Science",
+    '2' : "Art",
+    '3' : "Geography",
+    '4' : "History",
+    '5' : "Entertainment",
+    '6' : "Sports" },
+    'currentCategory': 'History'
+}
 ```
-dropdb trivia_test
-createdb trivia_test
-psql trivia_test < trivia.psql
-python test_flaskr.py
+
+```js
+GET '/categories/${id}/questions'
+- Fetches questions for a cateogry specified by id request argument 
+- Request Arguments: id - integer
+- Returns: An object with questions for the specified category, total questions, and current category string 
+{
+    'questions': [
+        {
+            'id': 1,
+            'question': 'This is a question',
+            'answer': 'This is an answer', 
+            'difficulty': 5,
+            'category': 4
+        },
+    ],
+    'totalQuestions': 100,
+    'currentCategory': 'History'
+}
+```
+
+```js
+DELETE '/questions/${id}'
+- Deletes a specified question using the id of the question
+- Request Arguments: id - integer
+- Returns: Does not need to return anything besides the appropriate HTTP status code. Optionally can return the id of the question. If you are able to modify the frontend, you can have it remove the question using the id instead of refetching the questions. 
+```
+
+```js
+POST '/quizzes'
+- Sends a post request in order to get the next question 
+- Request Body: 
+{'previous_questions':  an array of question id's such as [1, 4, 20, 15]
+'quiz_category': a string of the current category }
+- Returns: a single new question object 
+{
+    'question': {
+        'id': 1,
+        'question': 'This is a question',
+        'answer': 'This is an answer', 
+        'difficulty': 5,
+        'category': 4
+    }
+}
+```
+
+```js
+POST '/questions'
+- Sends a post request in order to add a new question
+- Request Body: 
+{
+    'question':  'Heres a new question string',
+    'answer':  'Heres a new answer string',
+    'difficulty': 1,
+    'category': 3,
+}
+- Returns: Does not return any new data
+```
+
+```js
+POST '/questions'
+- Sends a post request in order to search for a specific question by search term 
+- Request Body: 
+{
+    'searchTerm': 'this is the term the user is looking for'
+}
+- Returns: any array of questions, a number of totalQuestions that met the search term and the current category string 
+{
+    'questions': [
+        {
+            'id': 1,
+            'question': 'This is a question',
+            'answer': 'This is an answer', 
+            'difficulty': 5,
+            'category': 5
+        },
+    ],
+    'totalQuestions': 100,
+    'currentCategory': 'Entertainment'
+}
 ```

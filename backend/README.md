@@ -42,6 +42,7 @@ Setting the FLASK_ENV variable to development will detect file changes and resta
 
 Setting the FLASK_APP variable to flaskr directs flask to use the flaskr directory and the __init__.py file to find the application.
 
+### Tasks
 One note before you delve into your tasks: for each endpoint, you are expected to define the endpoint and response data. The frontend will be a plentiful resource because it is set up to expect certain endpoints and response data formats already. You should feel free to specify endpoints in your own way; if you do so, make sure to update the frontend or you will get some unexpected behavior. 
 
 1. Use Flask-CORS to enable cross-domain requests and set response headers. 
@@ -69,8 +70,6 @@ One note before you delve into your tasks: for each endpoint, you are expected t
 
 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
-
-
 
 ## API
 

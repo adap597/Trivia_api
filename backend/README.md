@@ -2,7 +2,7 @@
 
 This project is a trivia game. The tasks for the project were to create an API and test suite for implementing the following:
 
-1) Display questions by category or all questions. Questions should show the question, category and difficulty rating by default and can show/hide the answer. 
+1) Display questions by category or display all questions. Questions should show the question, category and difficulty rating by default and can show/hide the answer. 
 2) Delete questions.
 3) Add questions. Question, answer, difficulty, and category are required fields.
 4) Search for questions based on a text query string.

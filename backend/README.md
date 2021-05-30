@@ -103,7 +103,7 @@ The API will return four types of errors
 
 ### Endpoints
 
-### GET \categories 
+#### GET \categories 
 
 * Fetches a dictionary of all available categories
 
@@ -124,7 +124,7 @@ The API will return four types of errors
 
 ```
 
-### GET `/questions?page=<page_number>` 
+#### GET `/questions?page=<page_number>` 
 * Fetches a paginated dictionary of questions of all available categories
    * Results are paginated in groups of 10
    
@@ -161,7 +161,7 @@ The API will return four types of errors
 }
 ```
 
-## DELETE `/questions/<question_id>`
+#### DELETE `/questions/<question_id>`
 * Delete an existing questions from available questions
 - *Request arguments:* question_id:int 
 - *Example response:* 
@@ -172,7 +172,7 @@ The API will return four types of errors
 }
 ```
 
-## POST `/questions`
+#### POST `/questions`
 * Create a new question 
 - *Request body:* {question:string, answer:string, difficulty:int, category:string}
 - *Example response:* 
@@ -182,7 +182,7 @@ The API will return four types of errors
   "success": true
 }
 ```
-## POST `/questions/search`
+#### POST `/questions/search`
 * Fetches all questions where a substring matches the search term 
 - *Request body:* {searchTerm:string}
 - *Example response:*
@@ -203,7 +203,7 @@ The API will return four types of errors
 }
 ```
 
-## GET `/categories/<int:category_id>/questions`
+#### GET `/categories/<int:category_id>/questions`
 * Fetches a dictionary of questions for the specified category
 - *Request argument:* category_id:int
 - *Example response:*
@@ -230,7 +230,7 @@ The API will return four types of errors
   "total_questions": 2
 }
 ```
-## POST `/quizzes`
+#### POST `/quizzes`
 * Fetches random questions within a specified category. No questions are repeated. 
 - *Request body:* {previous_questions: arr, quiz_category: {id:int, type:string}}
 - *Example response*: 

@@ -124,7 +124,7 @@ The API will return four types of errors
 
 ```
 
-### GET `\questions?page=<page_number>` 
+### GET `/questions?page=<page_number>` 
 * Fetches a paginated dictionary of questions of all available categories
    * Results are paginated in groups of 10
    
@@ -149,11 +149,11 @@ The API will return four types of errors
       "question": "What boxer's original name is Cassius Clay?"
     },  
     {
-      "answer": "Escher", 
-      "category": 2, 
-      "difficulty": 1, 
-      "id": 16, 
-      "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
+      "answer": "Scarab", 
+      "category": 4, 
+      "difficulty": 4, 
+      "id": 23, 
+      "question": "Which dung beetle was worshipped by the ancient Egyptians?"
     }
   ], 
   "success": true, 

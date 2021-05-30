@@ -58,9 +58,11 @@ From within the `./src` directory first ensure you are working using your create
 
 To run the server, execute:
 
+```
 export FLASK_APP=flaskr
 export FLASK_ENV=development
 flask run
+```
 
 Setting the FLASK_ENV variable to development will detect file changes and restart the server automatically.
 

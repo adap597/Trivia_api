@@ -103,7 +103,7 @@ The API will return four types of errors
 
 ### Endpoints
 
-#### GET \categories 
+#### GET /categories 
 
 * Fetches a dictionary of all available categories
 
